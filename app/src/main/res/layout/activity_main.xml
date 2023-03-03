@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/getCityID"
+        android:id="@+id/btn_getCityID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get City ID"
@@ -22,12 +22,12 @@
         android:layout_height="wrap_content"
         android:text="Weather By ID"
         android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/getWeatherByCityName"
-        app:layout_constraintStart_toEndOf="@id/getCityID"
-        app:layout_constraintTop_toTopOf="@+id/getCityID" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_getWeatherByCityName"
+        app:layout_constraintStart_toEndOf="@id/btn_getCityID"
+        app:layout_constraintTop_toTopOf="@+id/btn_getCityID" />
 
     <Button
-        android:id="@+id/getWeatherByCityName"
+        android:id="@+id/btn_getWeatherByCityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weather By Name"
@@ -46,7 +46,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getCityID" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_getCityID" />
 
     <ListView
         android:id="@+id/lv_weatherReports"
