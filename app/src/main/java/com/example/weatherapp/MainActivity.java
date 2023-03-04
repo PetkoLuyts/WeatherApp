@@ -43,34 +43,18 @@ public class MainActivity extends AppCompatActivity {
         btn_cityID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "https://api.openweathermap.org/data/2.5/weather?q="+ et_dataInput.getText().toString() + "&appid=5d5affe841dd964f4563f5c3771df5d5";
-
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                WeatherDataService weatherDataService = new WeatherDataService(MainActivity.this);
+                weatherDataService.getCityForecastByName(et_dataInput.getText().toString(), new WeatherDataService.VolleyResponseListener() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        JSONArray weatherJSON;
-                        JSONObject mainJSON, windJSON;
-                        Integer visibility;
-
-                        try {
-                            weatherJSON = response.getJSONArray("weather");
-                            mainJSON = response.getJSONObject("main");
-                            visibility = response.getInt("visibility");
-                            windJSON = response.getJSONObject("wind");
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
-
-                        Toast.makeText(MainActivity.this, weatherJSON.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+                    public void onError(String message) {
                         Toast.makeText(MainActivity.this, "Error occurred", Toast.LENGTH_SHORT).show();
                     }
-                });
 
-                MySingleton.getInstance(MainActivity.this).addToRequestQueue(request);
+                    @Override
+                    public void onResponse(WeatherReportModel weatherReport) {
+                        Toast.makeText(MainActivity.this, weatherReport.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
