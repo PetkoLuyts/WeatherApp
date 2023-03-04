@@ -77,6 +77,6 @@ public class WeatherDataService {
             }
         });
 
-        MySingleton.getInstance(context).addToRequestQueue(request);
+        RequestQueueSingleton.getInstance(context).addToRequestQueue(request);
     }
 }

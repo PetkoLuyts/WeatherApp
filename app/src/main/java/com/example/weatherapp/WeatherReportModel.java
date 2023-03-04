@@ -1,9 +1,10 @@
 package com.example.weatherapp;
 
 public class WeatherReportModel {
+    private static final double KALVIN_TO_CELSIUS = 273.15;
     private String main;
     private String description;
-    private Double temp;
+    private double temp;
     private double temp_min;
     private double temp_max;
     private int pressure;
@@ -15,9 +16,9 @@ public class WeatherReportModel {
                               double temp_max, int pressure, int humidity, int visibility, double speed) {
         this.main = main;
         this.description = description;
-        this.temp = temp;
-        this.temp_min = temp_min;
-        this.temp_max = temp_max;
+        this.temp = temp - KALVIN_TO_CELSIUS;
+        this.temp_min = temp_min - KALVIN_TO_CELSIUS;
+        this.temp_max = temp_max - KALVIN_TO_CELSIUS;
         this.pressure = pressure;
         this.humidity = humidity;
         this.visibility = visibility;
@@ -26,17 +27,15 @@ public class WeatherReportModel {
 
     @Override
     public String toString() {
-        return "WeatherReportModel{" +
-                "main='" + main + '\'' +
-                ", description='" + description + '\'' +
-                ", temp=" + temp +
-                ", temp_min=" + temp_min +
-                ", temp_max=" + temp_max +
-                ", pressure=" + pressure +
-                ", humidity=" + humidity +
-                ", visibility=" + visibility +
-                ", speed=" + speed +
-                '}';
+        return "Current weather: " + main + '\n' +
+                "Detailed description: " + description + '\n' +
+                "Current temperature: " + (int)temp + '\n' +
+                "Minimum temperature for the day: " + (int)temp_min + '\n' +
+                "Maximum temperature for the day:" + (int)temp_max + '\n' +
+                "Pressure: " + pressure + '\n' +
+                "Humidity: " + humidity + '\n' +
+                "Visibility: " + visibility + '\n' +
+                "Wind speed: " + speed;
     }
 
     public String getMain() {

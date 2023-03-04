@@ -10,31 +10,12 @@
         android:id="@+id/btn_getCityID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get City ID"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_getWeatherByCityID"
+        android:layout_marginTop="16dp"
+        android:text="Get Current Weather"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_getWeatherByCityID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weather By ID"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_getWeatherByCityName"
-        app:layout_constraintStart_toEndOf="@id/btn_getCityID"
-        app:layout_constraintTop_toTopOf="@+id/btn_getCityID" />
-
-    <Button
-        android:id="@+id/btn_getWeatherByCityName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weather By Name"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_getWeatherByCityID"
-        app:layout_constraintTop_toTopOf="@+id/btn_getWeatherByCityID" />
 
     <EditText
         android:id="@+id/et_dataInput"
