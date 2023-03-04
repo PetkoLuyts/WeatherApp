@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         btn_cityID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 String url = "https://api.openweathermap.org/data/2.5/weather?q="+ et_dataInput.getText().toString() + "&appid=5d5affe841dd964f4563f5c3771df5d5";
 
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                queue.add(request);
+                MySingleton.getInstance(MainActivity.this).addToRequestQueue(request);
             }
         });
 
